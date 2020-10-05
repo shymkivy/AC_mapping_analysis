@@ -83,7 +83,21 @@ data_out = f_map_process_data(ops, params);
 f_map_analysis(data_out, params, ops);
 
 %%
-f_reduce_data_dim(data_out, params);
-%%
+[d1,d2,t_bin,trials] = size(data_out.vec_frame_data);
+data1 = double(reshape(data_out.vec_frame_data(:,:,:,data_out.trial_types == 2),d1*d2,[]));
+data_mean = mean(data1,2);
+data1_norm = (data1 - data_mean)./std(data1,[],2);
+[U,S,V] = svd(data1_norm);
+
+n_comps = 1;
+data_LR = U(:,n_comps)*S(n_comps,n_comps)*V(:,n_comps)';
+
+figure; imagesc(reshape(U(:,9),d1,d2))
+
+trial_V = reshape(V(:,8),t_bin,[]);
+mean(trial_V(1:9))
+figure; plot(trial_V)
+
+
 
 disp('Done');
