@@ -29,9 +29,14 @@ for n_comp = 1:10
 end
 
 
+      
+
 %% plot
-n_comps = 6;
+n_comps = 1;
 data_LR = U(:,n_comps)*S(n_comps,n_comps)*V(:,n_comps)';
+
+vid_stack = data_LR;
+f_save_tif_stack_YS(vid_stack, 'test.tif');
 
 figure; imagesc(reshape(U(:,n_comp),d1,d2))
 
