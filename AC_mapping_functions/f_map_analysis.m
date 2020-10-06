@@ -14,7 +14,7 @@ imagesc(squeeze(mean(mean(vec_frame_data,3),4)));
 colormap gray;
 title(['Average Image ' ops.file_name], 'Interpreter', 'none');
 axis tight equal off;
-savefig(fig1, [ops.data_dir '\Average Image ' ops.file_name]);
+savefig(fig1, [ops.data_dir '\' ops.file_name '_ave_im']);
 
 %% normalize pizel by pixel
 
@@ -55,7 +55,6 @@ if ops.save_trial_analysis
     f_map_single_trial_analysis(vec_frame_data, trial_types, params, ops)
 end
 
-
 %% trial ave vids
 if ops.save_trial_ave_vids
     f_map_trial_ave_vid(vec_frame_data, trial_types, params, ops)
@@ -65,5 +64,7 @@ end
 if ops.save_single_trial_vids
     f_map_single_trial_vid(vec_frame_data, trial_types, params, ops)
 end
+
+
 
 end

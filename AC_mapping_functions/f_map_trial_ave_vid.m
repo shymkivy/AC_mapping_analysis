@@ -35,7 +35,7 @@ if concat_vids
         end
         
 
-        f_save_tif_stack_YS(vid_stack, sprintf('%s_allfr_%dV_trial_ave.tif',[ops.data_dir '\trial_ave_vids\' ops.file_name], stim_type_lookup(freq_amp_lookup(1, n_amp),2)));
+        f_save_tif_stack2_YS(vid_stack, sprintf('%s_allfr_%dV_trial_ave.tif',[ops.data_dir '\trial_ave_vids\' ops.file_name], stim_type_lookup(freq_amp_lookup(1, n_amp),2)));
         %f_play_stack(vid_stack, 30, 1, [num2str(all_trial_types(freq_amp_lookup(1, n_amp),2)) 'V']);
         
     end

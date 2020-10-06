@@ -30,10 +30,10 @@ close all;
 addpath('C:\Users\rylab_dataPC\Desktop\Yuriy\AC_mapping')
 addpath('C:\Users\rylab_dataPC\Desktop\Yuriy\AC_mapping\AC_mapping_functions')
 
-ops.data_dir = 'G:\data\AC\mapping\5_17_20_mapping\testing';
+ops.data_dir = 'F:\data\Auditory\2018\10_2_18_mapping';
 %ops.data_dir = 'L:\data\Auditory\2018\11_20_18_mapping';
 
-ops.file_name = 'AC_mapping1_5_17_20';
+ops.file_name = 'AC_mapping5_9_28_18';
 
 %file_name = 'A1_freq_sweeps2_9_28_18';
 
@@ -83,7 +83,7 @@ data_out = f_map_process_data(ops, params);
 f_map_analysis(data_out, params, ops);
 
 %%
-f_reduce_data_dim(data_out, params);
+%f_reduce_data_dim(data_out, params);
 %%
 
 disp('Done');
