@@ -30,10 +30,10 @@ close all;
 addpath('C:\Users\rylab_dataPC\Desktop\Yuriy\AC_mapping')
 addpath('C:\Users\rylab_dataPC\Desktop\Yuriy\AC_mapping\AC_mapping_functions')
 
-ops.data_dir = 'F:\data\Auditory\2018\10_2_18_mapping';
+ops.data_dir = 'F:\data\Auditory\2018\11_21_18_mapping';
 %ops.data_dir = 'L:\data\Auditory\2018\11_20_18_mapping';
 
-ops.file_name = 'AC_mapping5_9_28_18';
+ops.file_name = 'AC_mapping1_11_20_18';
 
 %file_name = 'A1_freq_sweeps2_9_28_18';
 

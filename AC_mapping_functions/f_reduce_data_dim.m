@@ -1,23 +1,25 @@
 function f_reduce_data_dim(data_out, params)
 
 [d1,d2,t_bin,trials] = size(data_out.vec_frame_data);
-data1 = double(reshape(data_out.vec_frame_data(:,:,:,data_out.trial_types == 2),d1*d2,[]));
+data1 = double(reshape(data_out.vec_frame_data(:,:,:,data_out.trial_types == 4),d1*d2,[]));
 data_mean = mean(data1,2);
 data1_norm = (data1 - data_mean)./std(data1,[],2);
 [U,S,V] = svd(data1_norm);
 
+[W,H] = nnmf(data1_norm,15);
+
 %% check which comps are modified by signal
 base_frames = params.t_sta<=0;
 
-for n_comp = 1:10
-    trial_V = reshape(V(:,n_comp),t_bin,[]);
+for n_comp = 1:15
+    trial_V = reshape(H(n_comp,:),t_bin,[]);
     base_sig = trial_V(base_frames,:);
     trial_base_mean = mean(base_sig);
     base_sig_norm = (base_sig - trial_base_mean);
     trial_base_std = std(base_sig_norm(:));
     figure; 
     subplot(2,1,1)
-    imagesc(reshape(U(:,n_comp),d1,d2));
+    imagesc(reshape(W(:,n_comp),d1,d2));
     title(['comp ' num2str(n_comp)]);
     subplot(2,1,2)
     hold on; axis tight;

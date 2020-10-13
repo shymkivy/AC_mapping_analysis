@@ -44,7 +44,7 @@ for n_amp = 1:numel(modulation_amp)
     end
     suptitle(sprintf('%dV modulation amplitude', modulation_amp(n_amp)));
 end
-savefig(fig1, [ops.data_dir '\Spatial_ave ' ops.file_name]);
+savefig(fig1, [ops.data_dir '\' ops.file_name 'Spatial_ave']);
 
 %% combine over amplitudes
 if numel(modulation_amp)>1
@@ -69,7 +69,7 @@ if numel(modulation_amp)>1
         title(['\fontsize{10}' sprintf('diff %d: %.1f kHz', n_fr, stim_type_lookup(n_fr)/1000)]);
     end 
     suptitle('All amps combined');
-    savefig(fig1, [ops.data_dir '\Spatial_ave_all ' ops.file_name]);
+    savefig(fig1, [ops.data_dir '\' ops.file_name 'Spatial_ave_all']);
 end
 
 
