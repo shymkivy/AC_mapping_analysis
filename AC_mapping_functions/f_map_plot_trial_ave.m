@@ -17,6 +17,8 @@ stim_type_lookup = params.stim_type_lookup;
 traces_ave = zeros(num_frames, params.num_trial_types);
 traces_sem = zeros(num_frames, params.num_trial_types);
 
+sp_dim = [ceil(num_freqs/5) 5];
+
 % define windows
 for n_tr = 1:params.num_trial_types
     temp_trials = vec_ave_data(:,trial_types == n_tr);
@@ -35,7 +37,7 @@ for n_amp = 1:numel(modulation_amp)
 end
 figure;
 for n_fr = 1:num_freqs
-    subplot(ops.subplot_dimensions(1),ops.subplot_dimensions(2),n_fr); hold on;
+    subplot(sp_dim(1),sp_dim(2),n_fr); hold on;
     for n_amp = 1:numel(modulation_amp)
         temp_ave_data = traces_ave(:,freq_amp_lookup(n_fr,n_amp));
         temp_sem_data = traces_sem(:,freq_amp_lookup(n_fr,n_amp));
@@ -70,7 +72,7 @@ if numel(modulation_amp)>1
 
     figure;
     for n_fr = 1:num_freqs
-        subplot(ops.subplot_dimensions(1),ops.subplot_dimensions(2),n_fr); hold on;
+        subplot(sp_dim(1), sp_dim(2),n_fr); hold on;
         sp{1} = shadedErrorBar(params.t_sta, traces_ave(:,n_fr), traces_sem(:,n_fr),'lineprops','k');      
         patch([0 0 duration duration],[y_min y_max y_max y_min] ,[1 .6 .6], 'LineStyle', 'none', 'FaceAlpha', 0.3);
         xlabel('Time, sec');

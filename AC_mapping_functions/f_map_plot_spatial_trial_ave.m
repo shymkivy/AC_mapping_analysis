@@ -11,6 +11,8 @@ stim_type_lookup = params.stim_type_lookup;
 
 %% define windows
 
+sp_dim = [ceil(num_freqs/5) 5];
+
 ave_frames = zeros(d1, d2, num_frames, params.num_trial_types);
 for n_tr = 1:params.num_trial_types
     ave_frames(:,:,:,n_tr) = mean(vec_frame_data(:,:,:,trial_types == n_tr),4);
@@ -22,7 +24,7 @@ for n_amp = 1:numel(modulation_amp)
     fig1 = figure;
     sp = cell(num_freqs,1);
     for n_fr=1:num_freqs
-        sp{n_fr} = f_subplot_tight(ops.subplot_dimensions(1),ops.subplot_dimensions(2),n_fr);
+        sp{n_fr} = f_subplot_tight(sp_dim(1), sp_dim(2),n_fr);
         tmp_frame = mean(ave_frames(:,:,params.onset_window_frames,freq_amp_lookup(n_fr,n_amp)),3);
         % subtract baseline if you want
         tmp_frame = tmp_frame - mean(ave_frames(:,:,params.baseline_window_frames,freq_amp_lookup(n_fr,n_amp)),3);
@@ -55,7 +57,7 @@ if numel(modulation_amp)>1
 
     fig1 = figure;
     for n_fr=1:num_freqs
-        subplot(ops.subplot_dimensions(1),ops.subplot_dimensions(2),n_fr);
+        subplot(sp_dim(1), sp_dim(2),n_fr);
         tmp_frame = mean(ave_frames(:,:,params.onset_window_frames,n_fr),3);
         % subtract baseline if you want
         tmp_frame = tmp_frame - mean(ave_frames(:,:,params.baseline_window_frames,n_fr),3);

@@ -27,13 +27,14 @@ clear;
 close all;
 
 %% Processing parameters
-addpath('C:\Users\rylab_dataPC\Desktop\Yuriy\AC_mapping')
-addpath('C:\Users\rylab_dataPC\Desktop\Yuriy\AC_mapping\AC_mapping_functions')
+addpath('C:\Users\ys2605\Desktop\stuff\AC_mapping_analysis')
+addpath('C:\Users\ys2605\Desktop\stuff\AC_mapping_analysis\AC_mapping_functions')
 
-ops.data_dir = 'F:\data\Auditory\2018\11_21_18_mapping';
+%ops.data_dir = 'F:\data\Auditory\2018\11_21_18_mapping';
 %ops.data_dir = 'L:\data\Auditory\2018\11_20_18_mapping';
+ops.data_dir = 'D:\data\mapping\12_24_21b_mapping';
 
-ops.file_name = 'AC_mapping1_11_20_18';
+ops.file_name = 'AC_mapping1_12_24_21b';
 
 %file_name = 'A1_freq_sweeps2_9_28_18';
 
@@ -71,7 +72,7 @@ ops.onset_window_time = [.05 .450];             % in sec
 ops.smooth_frames = 0; % % during analysis, smoothing frames via convolution
 ops.kernel_size = 30; % smoothing parameters
 
-ops.subplot_dimensions = [2 5];
+%ops.subplot_dimensions = [2 5];
 
 %%
 params = f_map_process_params(ops);

@@ -11,6 +11,8 @@ if ~exist([ops.data_dir '\trial_ave_vids'], 'dir')
     mkdir([ops.data_dir '\trial_ave_vids']);
 end
 
+num_freqs = params.stim_params.num_freqs;
+sp_dim = [ceil(num_freqs/5) 5];
 
 ave_frames = zeros(d1, d2, num_frames, params.num_trial_types);
 for n_tr = 1:params.num_trial_types
@@ -18,7 +20,7 @@ for n_tr = 1:params.num_trial_types
 end
 
 if concat_vids
-    m = 2; n = 5;
+    m = sp_dim(1); n = sp_dim(2);
     for n_amp = 1:numel(params.stim_params.modulation_amp)
         temp_ave_data = ave_frames(:,:,:,freq_amp_lookup(:, n_amp));
         % concatenate spatially
