@@ -15,7 +15,7 @@
 %
 %   Processing steps:
 %       blah blah
-%
+%se
 %   Required functions(might be internal version at end): 
 %       synch_pulse_frames
 %       align_volt_trace
@@ -32,16 +32,16 @@ addpath('C:\Users\ys2605\Desktop\stuff\AC_mapping_analysis\AC_mapping_functions'
 
 %ops.data_dir = 'F:\data\Auditory\2018\11_21_18_mapping';
 %ops.data_dir = 'L:\data\Auditory\2018\11_20_18_mapping';
-ops.data_dir = 'D:\data\mapping\12_24_21b_mapping';
+ops.data_dir = 'F:\AC_data\mapping\M4264_mapping';
 
-ops.file_name = 'AC_mapping1_12_24_21b';
+ops.file_name = 'M4264_AC_mapping1_9_5_24';
 
 %file_name = 'A1_freq_sweeps2_9_28_18';
 
 %parameters_file_name = 'A1_mapping2_9_20_18';
 ops.save_trial_analysis = 0; % not ready
-ops.save_single_trial_vids = 1;
-ops.save_trial_ave_vids = 1;
+ops.save_single_trial_vids = 0;
+ops.save_trial_ave_vids = 0;
 
 % select alignment mode
 % = 1 for artifact triggered average;

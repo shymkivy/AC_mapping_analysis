@@ -13,7 +13,6 @@ params.stim_params = stim_params;
 
 params.freq_amp_lookup = reshape((1:stim_params.num_freqs*numel(stim_params.modulation_amp))',stim_params.num_freqs, numel(stim_params.modulation_amp));
 
-
 %% compute used frequencies
 params.num_trial_types = stim_params.num_freqs*numel(stim_params.modulation_amp);
 
